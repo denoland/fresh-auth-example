@@ -1,4 +1,4 @@
-import Auth from "../islands/Auth.tsx";
+import Login from "../islands/Login.tsx";
 import type { Handlers, PageProps } from "$fresh/server.ts";
 import { getCookies } from "std/http/cookie.ts";
 
@@ -15,7 +15,7 @@ export default function Home({ data }: PageProps<Data>) {
       <div>
         You currently {data.isAllowed ? "are" : "are not"} logged in.
       </div>
-      {!data.isAllowed && <Auth />}
+      {!data.isAllowed ? <Login /> : <a href="/api/logout">Logout</a>}
     </div>
   );
 }
@@ -23,7 +23,6 @@ export default function Home({ data }: PageProps<Data>) {
 export const handler: Handlers = {
   GET(req, ctx) {
     const cookies = getCookies(req.headers);
-    console.log(cookies);
 
     return ctx.render!({ isAllowed: cookies.auth === "bar" });
   },

@@ -1,13 +1,13 @@
 import { useState } from "preact/hooks";
 
-export default function Auth() {
+export default function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   return (
     <form
       onSubmit={async (e) => {
         e.preventDefault();
-        const res = await fetch("/api/auth", {
+        const res = await fetch("/api/login", {
           method: "POST",
           body: JSON.stringify({
             username,
