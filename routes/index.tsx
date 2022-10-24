@@ -15,8 +15,18 @@ export default function Home({ data }: PageProps<Data>) {
       <div>
         You currently {data.isAllowed ? "are" : "are not"} logged in.
       </div>
-      {!data.isAllowed ? <Login /> : <a href="/api/logout">Logout</a>}
+      {!data.isAllowed ? <Login /> : <a href="/logout">Logout</a>}
     </div>
+  );
+}
+
+function Login() {
+  return (
+    <form method="post" encType="multipart/form-data" action="/api/login">
+      <input type="text" name="username" />
+      <input type="password" name="password" />
+      <button type="submit">Submit</button>
+    </form>
   );
 }
 

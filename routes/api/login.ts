@@ -4,8 +4,8 @@ import { setCookie } from "std/http/cookie.ts";
 export const handler: Handlers = {
   async POST(req) {
     const url = new URL(req.url);
-    const { username, password } = await req.json();
-    if (username === "deno" && password === "land") {
+    const form = await req.formData();
+    if (form.get("username") === "deno" && form.get("password") === "land") {
       const headers = new Headers();
       setCookie(headers, {
         name: "auth",
@@ -16,8 +16,12 @@ export const handler: Handlers = {
         path: "/",
         secure: true,
       });
+
+      url.pathname = "/";
+      headers.set("location", url.href);
+
       return new Response(null, {
-        status: 200,
+        status: 302,
         headers,
       });
     } else {

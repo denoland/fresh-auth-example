@@ -10,8 +10,8 @@ export const handler: Handlers = {
     url.pathname = "/";
     headers.set("location", url.href);
     return new Response(null, {
-      headers,
       status: 302,
+      headers,
     });
   },
 };

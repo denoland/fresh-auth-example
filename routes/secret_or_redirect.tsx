@@ -16,7 +16,7 @@ export const handler: Handlers = {
       return ctx.render!();
     } else {
       const url = new URL(req.url);
-      url.pathname = "";
+      url.pathname = "/";
       return Response.redirect(url);
     }
   },
