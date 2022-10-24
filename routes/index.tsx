@@ -1,4 +1,3 @@
-import Login from "../islands/Login.tsx";
 import type { Handlers, PageProps } from "$fresh/server.ts";
 import { getCookies } from "std/http/cookie.ts";
 
