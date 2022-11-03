@@ -21,7 +21,7 @@ export default function Home({ data }: PageProps<Data>) {
 
 function Login() {
   return (
-    <form method="post" encType="multipart/form-data" action="/api/login">
+    <form method="post" action="/api/login">
       <input type="text" name="username" />
       <input type="password" name="password" />
       <button type="submit">Submit</button>

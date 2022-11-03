@@ -11,17 +11,16 @@ export const handler: Handlers = {
         name: "auth",
         value: "bar", // this should be a unique value for each session
         maxAge: 120,
-        sameSite: "Lax",
+        sameSite: "Lax", // this is important to prevent CSRF attacks
         domain: url.hostname,
         path: "/",
         secure: true,
       });
 
-      url.pathname = "/";
-      headers.set("location", url.href);
+      headers.set("location", "/");
 
       return new Response(null, {
-        status: 302,
+        status: 303, // See Other
         headers,
       });
     } else {
