@@ -1,6 +1,9 @@
-# fresh project
+# Fresh Auth Example
 
-### Usage
+This is the example repo that accompanied the tutorial,
+[How to Setup Auth with Fresh](https://deno.com/blog/setup-auth-with-fresh).
+
+## Usage
 
 Start the project:
 
